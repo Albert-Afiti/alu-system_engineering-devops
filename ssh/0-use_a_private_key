@@ -1,0 +1,5 @@
+#!/bin/env bash
+#connecting to web-01
+
+ssh -i ~/.ssh/school ubuntu@54.88.58.56
+
