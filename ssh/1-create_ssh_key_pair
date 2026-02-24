@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # creating ssh keypair
 
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N "betty"
+ssh-keygen -t rsa -b 4096 -f school -N "betty"
 
