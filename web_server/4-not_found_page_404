@@ -6,7 +6,7 @@ apt-get update -y
 apt-get install nginx -y
 
 # Create a simple HTML page with the required content
-echo "Alberto School for the win!" > /var/www/html/index.html
+echo "Holberton School for the win!" > /var/www/html/index.html
 
 # Create custom 404 page
 echo "Ceci n'est pas une page" > /var/www/html/404.html
