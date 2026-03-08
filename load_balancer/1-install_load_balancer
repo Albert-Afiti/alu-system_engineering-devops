@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy load balancer
+
+# Update package list and install HAproxy
+apt-get update
+apt-get install -y haproxy
+
+# Backup original config
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+
+# Configure HAproxy
+cat >> /etc/haproxy/haproxy.cfg <<EOF
+
+frontend http_front
+    bind *:80
+    mode http
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    mode http
+    server 6909-web-01 54.165.40.229:80 check
+    server 6909-web-02 54.152.35.234:80 check
+EOF
+
+# Enable HAproxy init script
+echo "ENABLED=1" > /etc/default/haproxy
+
+# Restart HAproxy
+service haproxy restart
